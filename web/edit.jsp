@@ -7,15 +7,14 @@
 		<title>部门</title>
 	</head>
 	<body>
-		<h3>欢迎[<%=session.getAttribute("username")%>]</h3>
-		<a href="<%=request.getContextPath()%>/user/exit">[退出登录]</a>
+		<h3>欢迎[${username}]</h3>
+		<a href="${pageContext.request.contextPath}/user/exit">[退出登录]</a>
 		<h1>修改部门</h1>
 		<hr >
-		<% Dept dept = (Dept)request.getAttribute("dept"); %>
-		<form action="<%=request.getContextPath()%>/dept/modify" method="post">
-			部门编号 <input type="text" name="deptno" value="<%=dept.getDeptno()%>" readonly="true"/> <br>
-			部门名称 <input type="text" name="dname"  value="<%=dept.getDname()%>"/><br>
-			部门位置 <input type="text" name="loc"    value="<%=dept.getLoc()%>"/><br>
+		<form action="${pageContext.request.contextPath}/dept/modify" method="post">
+			部门编号 <input type="text" name="deptno" value="${dept.deptno}" readonly="true"/> <br>
+			部门名称 <input type="text" name="dname"  value="${dept.dname}"/><br>
+			部门位置 <input type="text" name="loc"    value="${dept.loc}"/><br>
 			<input type="submit" name="" id="" value="修改" /><br>
 		</form>
 	</body>

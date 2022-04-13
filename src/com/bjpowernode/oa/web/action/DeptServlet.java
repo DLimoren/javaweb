@@ -229,5 +229,7 @@ public class DeptServlet extends HttpServlet {
         }
         request.setAttribute("deptList" , depts);
         request.getRequestDispatcher("/list.jsp").forward(request,response);
+//        request.getRequestDispatcher("/error.jsp").forward(request,response);
+//        response.sendRedirect();
     }
 }
