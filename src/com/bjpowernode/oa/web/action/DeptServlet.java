@@ -22,30 +22,24 @@ public class DeptServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        if(session != null && session.getAttribute("username") != null) {
-            String servletPath = request.getServletPath();
-            if("/dept/list".equals(servletPath)){
-                doList(request , response);
-            }
-            else if("/dept/detail".equals(servletPath)){
-                doDetail(request , response);
-            }
-            else if("/dept/edit".equals(servletPath)){
-                doEdit(request, response);
-            }
-            else if("/dept/save".equals(servletPath)){
-                doSave(request , response);
-            }
-            else if("/dept/delete".equals(servletPath)){
-                doDel(request , response);
-            }
-            else if("/dept/modify".equals(servletPath)){
-                doModify(request , response);
-            }
+        String servletPath = request.getServletPath();
+        if("/dept/list".equals(servletPath)){
+            doList(request , response);
         }
-        else{
-            response.sendRedirect(  request.getContextPath());
+        else if("/dept/detail".equals(servletPath)){
+            doDetail(request , response);
+        }
+        else if("/dept/edit".equals(servletPath)){
+            doEdit(request, response);
+        }
+        else if("/dept/save".equals(servletPath)){
+            doSave(request , response);
+        }
+        else if("/dept/delete".equals(servletPath)){
+            doDel(request , response);
+        }
+        else if("/dept/modify".equals(servletPath)){
+            doModify(request , response);
         }
     }
 

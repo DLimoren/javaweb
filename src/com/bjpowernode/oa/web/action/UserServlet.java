@@ -30,6 +30,12 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
+            Cookie[] cookies = request.getCookies();
+            for(Cookie cookie : cookies){
+                cookie.setMaxAge(0);
+                cookie.setPath(request.getContextPath());
+                response.addCookie(cookie);
+            }
             response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
     }
