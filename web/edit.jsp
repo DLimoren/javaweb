@@ -7,7 +7,7 @@
 		<title>部门</title>
 	</head>
 	<body>
-		<h3>欢迎[${username}]</h3>
+		<h3>欢迎[${user.username}]</h3>
 		<a href="${pageContext.request.contextPath}/user/exit">[退出登录]</a>
 		<h1>修改部门</h1>
 		<hr >

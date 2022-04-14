@@ -1,5 +1,6 @@
 package com.bjpowernode.oa.web.action;
 
+import com.bjpowernode.oa.bean.User;
 import com.bjpowernode.oa.utils.DBUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -50,6 +51,9 @@ public class WelcomeServlet extends HttpServlet {
             if(success){
                 HttpSession session = request.getSession();
                 session.setAttribute("username" , username);
+                User user = new User(username , password);
+                session.setAttribute("user" , user);
+//                session.setAttribute("username",username);
                 response.sendRedirect(request.getContextPath() + "/dept/list");
             }else {
                 response.sendRedirect(request.getContextPath() + "/index.jsp");

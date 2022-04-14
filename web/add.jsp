@@ -6,7 +6,7 @@
 		<title>新增部门</title>
 	</head>
 	<body>
-		<h3>欢迎[${username}]</h3>
+		<h3>欢迎[${user.username}]</h3>
 		<h1>新增部门</h1>
 		<hr >
 		<form action="${pageContext.request.contextPath}/dept/save" method="post">

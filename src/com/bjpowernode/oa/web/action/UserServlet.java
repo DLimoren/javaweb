@@ -1,5 +1,6 @@
 package com.bjpowernode.oa.web.action;
 
+import com.bjpowernode.oa.bean.User;
 import com.bjpowernode.oa.utils.DBUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,6 +30,7 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException{
         HttpSession session = request.getSession(false);
         if (session != null) {
+            session.removeAttribute("user");
             session.invalidate();
             Cookie[] cookies = request.getCookies();
             for(Cookie cookie : cookies){
@@ -67,7 +69,9 @@ public class UserServlet extends HttpServlet {
         }
         if(success){
             HttpSession session = request.getSession();
-            session.setAttribute("username",username);
+            User user = new User(username , password);
+            session.setAttribute("user" , user);
+//            session.setAttribute("username",username);
             String f = request.getParameter("f");
             if("1".equals(f)){
                 Cookie cookie1 = new Cookie("username" , username);

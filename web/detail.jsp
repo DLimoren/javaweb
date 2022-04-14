@@ -8,7 +8,7 @@
 	</head>
 	<body>
 
-		<h3>欢迎[${username}]</h3>
+		<h3>欢迎[${user.username}]</h3>
 		<h1>部门详情</h1>
 		<hr >
 		部门编号：${dept.deptno} <br>

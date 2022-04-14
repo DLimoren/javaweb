@@ -18,8 +18,12 @@ public class LoginCheckFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession session = request.getSession(false);
         String servletPath = request.getServletPath();
+//        if("/index.jsp".equals(servletPath) || "/welcome".equals(servletPath) ||"/user/login".equals(servletPath)
+//                || "user/exit".equals(servletPath) ||(session != null && session.getAttribute("username") != null)) {
+//            chain.doFilter(request, response);
+//        }
         if("/index.jsp".equals(servletPath) || "/welcome".equals(servletPath) ||"/user/login".equals(servletPath)
-                || "user/exit".equals(servletPath) ||(session != null && session.getAttribute("username") != null)) {
+                || "user/exit".equals(servletPath) ||(session != null && session.getAttribute("user") != null)) {
             chain.doFilter(request, response);
         }
         else{
